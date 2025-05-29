@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+requests
+beautifulsoup4
+selenium
+yfinance
+pandas
+qdrant-client
+ollama
+langgraph
+crewai
+redis
+speechrecognition
+TTS
+streamlit
+plotly
+python-dotenv

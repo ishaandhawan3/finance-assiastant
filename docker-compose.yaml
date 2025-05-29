@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - qdrant
+      - redis
+  streamlit:
+    image: streamlit
+    volumes:
+      - ./streamlit_app:/app
+    command: streamlit run /app/Home.py --server.port 8501
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
